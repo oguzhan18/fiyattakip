@@ -1,0 +1,69 @@
+.sidebar {
+  font-family: PTSansCaption-regular;
+}
+
+.user-card {
+  text-align: center;
+  box-shadow: none;
+  border-radius: 0px;
+  background-color: #f4f5fd;
+}
+
+.user-mat-card-avatar {
+  height: 60px;
+  width: 60px;
+  margin-bottom: 5px;
+}
+
+.user-card-title {
+  font-size: 0.875rem;
+  font-weight: 00;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  margin-bottom: 2px;
+}
+
+.user-card-subtitle {
+  font-size: 13px;
+}
+
+.user-card-button {
+  line-height: 30px;
+  background-color: #880e4f;
+}
+
+.user-bedge {
+  margin: 5px;
+  width: 97%;
+  border-radius: 5px;
+  background-color: #f4f5fd;
+}
+
+/* Sidebar navigation heading */
+
+.sidenav-heading {
+  padding: 1rem 1rem 0 0.90909rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.91rem;
+  white-space: nowrap;
+  color: #880e4f;
+}
+
+.side-nav i {
+  padding-right: 15px;
+}
+
+.mat-list-item {
+  height: 40px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #263055;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
+.mat-list-item:hover {
+  background-color: #f4f5fd;
+  color: #8794f8;
+}

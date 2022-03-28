@@ -1,0 +1,19 @@
+table tr:nth-child(odd) {
+  background-color: #ffffff;
+  border-top: 2px solid  #ffffff;
+  height: 100%;
+  overflow: scroll;
+
+  a{
+    color: black;
+  }
+}
+table tr:nth-child(even) {
+
+  background-color: #1a1a1a;
+
+  height: 100%;
+  a{
+    color: #ffffff;
+  }
+}

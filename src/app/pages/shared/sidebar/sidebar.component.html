@@ -1,0 +1,37 @@
+<div class="sidebar">
+
+<mat-card class="user-card">
+    <img class="user-mat-card-avatar"src="/assets/logo/icon.ico">
+    <div class="user-card">
+        <mat-card-title class="user-card-title">{{clock}}</mat-card-title>
+        <mat-card-title class="user-card-title">ÇART APP</mat-card-title>
+    </div>
+</mat-card>
+
+<!-- <mat-nav-list class="side-nav">
+        <a mat-list-item routerLinkActive="list-item-active" routerLink=""> <i class="material-icons">home</i>Home</a>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="about"> <i class="material-icons">corporate_fare</i>Company Profile</a>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="services"> <i class="material-icons">design_services</i>Our Services</a>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="products"> <i class="material-icons">inventory_2</i>Our Product</a>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="partner"> <i class="material-icons">group_work</i>Partner</a>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="client"> <i class="material-icons">business</i>Client</a>
+        <a mat-list-item routerLinkActive="list-item-active" routerLink="contact"> <i class="material-icons">contact_mail</i>Contact Us</a>
+</mat-nav-list> -->
+
+<div *ngIf="_AuthService.isLoggedIn()">
+<div class="sidenav-heading" routerLink="/">Yönetim Paneli</div>
+<mat-nav-list class="side-nav">
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/"><i class="material-icons">terminal</i>Panel</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/doviz"><i class="material-icons">euro</i>Döviz</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/maden" ><i class="material-icons">villa</i>Maden</a>
+   <a mat-list-item routerLinkActive="list-item-active" routerLink="/saraffiye" ><i class="material-icons">adjust</i>Sarrafiye</a>
+   <a mat-list-item routerLinkActive="list-item-active" routerLink="/enerji" ><i class="material-icons">flash_on</i>Emita</a>
+  <hr>
+   <a mat-list-item routerLinkActive="list-item-active" routerLink="/analiz" ><i class="material-icons">insert_chart</i>Teknik Analiz</a>
+   <a mat-list-item routerLinkActive="list-item-active" routerLink="/world-price" ><i class="material-icons">track_changes</i>Dünya Para Birim Takip</a>
+   <a mat-list-item routerLinkActive="list-item-active" routerLink="/all" ><i class="material-icons">border_all</i>Tüm Fiyatlar</a>
+   <a mat-list-item routerLinkActive="list-item-active" routerLink="/vdashboard" ><i class="material-icons">store_mall_directory</i>Müşteri Yönetim</a>
+
+</mat-nav-list>
+</div>
+</div>

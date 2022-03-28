@@ -1,0 +1,241 @@
+<div class="home-container col-12" style=" background-color: rgb(233, 233, 233); height: 60rem;">
+
+  <div class="piece-div col-sm-12 col-md-12 col-lg-5">
+    <div class="grid-container">
+      <div class="title">
+        <div class="title-fixed col-10">
+          <div class="categoryName col-sm-6 col-md-6 col-lg-4" translate>
+            <span style="margin-left: 10px;">Zynet Sarrafiye (₺)</span>
+          </div>
+          <div class="bid col-sm-3 col-md-3 col-lg-3" translate>
+            alış
+          </div>
+          <div class="ask col-sm-3 col-md-3 col-lg-3" translate>
+            satış
+          </div>
+        </div>
+        <div class="click-icon col-2" (click)="resizeDiv('currencyContainer')">
+          <i class="material-icons">fullscreen</i>
+        </div>
+      </div>
+
+      <div class="overflow-box" id="currencyContainer">
+        <div class="grid-box" *ngFor="let data of ziynetList ; let i=index; trackBy : trackByPrice">
+          <div class="grid-card" (click)="toggle(data)" [ngClass]="{'grid-card-up': data.askPercentChange >0,
+                 'grid-card-down': data.askPercentChange <0}">
+                        <span class="grid-text col-sm-3 col-md-3 col-lg-3">
+              {{data.Code}}
+            </span>
+            <div class="price-tag col-sm-9 col-md-9 col-lg-9">
+                            <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange>0"
+                                  style="color: #3a9d37;padding: 0;text-align: center">
+                <i class="fa fa-angle-up"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange<0"
+                    style="color: #f25961;padding: 0;text-align: center">
+                <i class="fa fa-angle-down"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange===0 || !data.askPercentChange"
+                    style="color: orange;padding: 0;text-align: center">
+                <i class="fa fa-minus"></i>
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+            {{data.Bid | number:'1.4-4'}}
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+         {{data.Ask | number:'1.4-4'}}
+              </span>
+              <span *ngIf="data.askPercentChange>0" class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: #3a9d37">
+            %{{data.askPercentChange}}
+          </span>
+              <span *ngIf="data.askPercentChange<0" class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: #f25961">
+            %{{data.askPercentChange}}
+          </span>
+              <span *ngIf="data.askPercentChange==0 || !data.askPercentChange"
+                    class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: orange">
+            %{{data.askPercentChange}}.00
+          </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="piece-div col-sm-12 col-md-12 col-lg-5">
+    <div class="grid-container">
+      <div class="title">
+        <div class="title-fixed col-8">
+          <div class="categoryName col-sm-6 col-md-6 col-lg-6" translate>
+            Altın
+          </div>
+          <div class="bid col-sm-3 col-md-3 col-lg-3" translate>
+            Alış
+          </div>
+          <div class="ask col-sm-3 col-md-3 col-lg-3" translate>
+            Satış
+          </div>
+        </div>
+        <div class="click-icon col-3" (click)="resizeDiv('metalContainer')">
+          <i class="material-icons">fullscreen</i>
+        </div>
+      </div>
+
+      <div class="overflow-box" id="metalContainer">
+        <div class="grid-box" *ngFor="let data of goldList ; let i=index; trackBy : trackByPrice">
+          <div class="grid-card" (click)="toggle(data)" [ngClass]="{'grid-card-up': data.askPercentChange >0,
+                 'grid-card-down': data.askPercentChange <0}">
+                        <span class="grid-text col-sm-3 col-md-3 col-lg-3">
+              {{data.Code}}
+            </span>
+            <div class="price-tag col-sm-9 col-md-9 col-lg-9">
+                            <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange>0"
+                                  style="color: #3a9d37;padding: 0;text-align: center">
+                <i class="fa fa-angle-up"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange<0"
+                    style="color: #f25961;padding: 0;text-align: center">
+                <i class="fa fa-angle-down"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange===0 || !data.askPercentChange"
+                    style="color: orange;padding: 0;text-align: center">
+                <i class="fa fa-minus"></i>
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+            {{data.Bid | number:'1.4-4'}}
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+         {{data.Ask | number:'1.4-4'}}
+              </span>
+              <span *ngIf="data.askPercentChange>0" class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: #3a9d37">
+            %{{data.askPercentChange}}
+          </span>
+              <span *ngIf="data.askPercentChange<0" class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: #f25961">
+            %{{data.askPercentChange}}
+          </span>
+              <span *ngIf="data.askPercentChange==0 || !data.askPercentChange"
+                    class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: orange">
+            %{{data.askPercentChange}}.00
+          </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="piece-div col-sm-12 col-md-12 col-lg-4">
+    <div class="grid-container">
+      <div class="title">
+        <div class="title-fixed col-9">
+          <div class="categoryName col-sm-6 col-md-6 col-lg-6" style="margin-left: 10px;">
+            Dünya Döviz
+          </div>
+          <div class="bid col-sm-3 col-md-3 col-lg-3" translate>
+            Alış
+          </div>
+          <div class="ask col-sm-3 col-md-3 col-lg-3" translate>
+            Satış
+          </div>
+        </div>
+        <div class="click-icon col-3" (click)="resizeDiv('parityContainer')">
+          <i class="material-icons">fullscreen</i>
+        </div>
+      </div>
+
+      <div class="overflow-box" id="parityContainer">
+        <div class="grid-box" *ngFor="let socketData of parityList; let i=index; trackBy : trackByPrice">
+          <div class="grid-card" (click)="toggle(socketData)" [ngClass]="{'grid-card-up': socketData.askPercentChange >0,
+                 'grid-card-down': socketData.askPercentChange <0}">
+                        <span class="grid-text col-sm-3 col-md-3 col-lg-3">
+              {{socketData.Code}}
+            </span>
+            <div class="price-tag col-sm-9 col-md-9 col-lg-8">
+                            <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="socketData.askPercentChange>0"
+                                  style="color: #3a9d37;padding: 0;text-align: center">
+                <i class="fa fa-angle-up"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="socketData.askPercentChange<0"
+                    style="color: #f25961;padding: 0;text-align: center">
+                <i class="fa fa-angle-down"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3"
+                    *ngIf="socketData.askPercentChange===0 || !socketData.askPercentChange"
+                    style="color: orange;padding: 0;text-align: center">
+                <i class="fa fa-minus"></i>
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+            {{socketData.Bid | number:'1.4-4'}}
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+         {{socketData.Ask | number:'1.4-4'}}
+              </span>
+              <span *ngIf="socketData.askPercentChange>0" class="grid-all col-sm-3 col-md-3 col-lg-3"
+                    style="color: #3a9d37">
+            %{{socketData.askPercentChange}}
+          </span>
+              <span *ngIf="socketData.askPercentChange<0" class="grid-all col-sm-3 col-md-3 col-lg-3"
+                    style="color: #f25961">
+            %{{socketData.askPercentChange}}
+          </span>
+              <span *ngIf="socketData.askPercentChange==0 || !socketData.askPercentChange"
+                    class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: orange">
+            %{{socketData.askPercentChange}}.00
+          </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </div>
+  <div class="piece-div col-sm-12 col-md-12 col-lg-4">
+    <div class="chart">
+     <app-chart [code]="code"></app-chart>
+    </div>
+  </div> -->
+      <div id="goldContainer">
+        <div class="grid-box" *ngFor="let socketData of kriptoList; let i=index; trackBy : trackByPrice">
+          <div class="grid-card" (click)="toggle(socketData)" [ngClass]="{'grid-card-up': socketData.askPercentChange >0,
+                 'grid-card-down': socketData.askPercentChange <0}">
+                        <span class="grid-text col-sm-3 col-md-3 col-lg-3">
+              {{socketData.Code}}
+            </span>
+            <div class="price-tag col-sm-9 col-md-9 col-lg-9">
+                            <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="socketData.askPercentChange>0"
+                                  style="color: #3a9d37;padding: 0;text-align: center">
+                <i class="fa fa-angle-up"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="socketData.askPercentChange<0"
+                    style="color: #f25961;padding: 0;text-align: center">
+                <i class="fa fa-angle-down"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3"
+                    *ngIf="socketData.askPercentChange===0 || !socketData.askPercentChange"
+                    style="color: orange;padding: 0;text-align: center">
+                <i class="fa fa-minus"></i>
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+            {{socketData.Bid | number:'1.2-2'}}
+       </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+         {{socketData.Ask | number:'1.2-2'}}
+              </span>
+              <span *ngIf="socketData.askPercentChange>0" class="grid-all col-sm-3 col-md-3 col-lg-3"
+                    style="color: #3a9d37">
+            %{{socketData.askPercentChange}}
+          </span>
+              <span *ngIf="socketData.askPercentChange<0" class="grid-all col-sm-3 col-md-3 col-lg-3"
+                    style="color: #f25961">
+            %{{socketData.askPercentChange}}
+          </span>
+              <span *ngIf="socketData.askPercentChange==0 || !socketData.askPercentChange"
+                    class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: orange">
+            %{{socketData.askPercentChange}}.00
+          </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- </div>
+  </div>
+</div> -->
+
+

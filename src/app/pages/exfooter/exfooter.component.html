@@ -1,0 +1,18 @@
+<div class="slider">
+  <div class="slide-track">
+    <div class="slide" *ngFor="let data of footerList; trackBy: trackByPrice">
+      <div class="text-parity">
+        {{ data.Code }}
+      </div>
+      <div class="text-price" *ngIf="data.askPercentChange===0">
+        <span> {{ data.Ask }}  </span>
+      </div>
+      <div class="text-price-up" *ngIf="data.askPercentChange>0">
+        <span> {{ data.Ask }}  </span>
+      </div>
+      <div class="text-price-down" *ngIf="data.askPercentChange<0">
+        <span> {{ data.Ask }}  </span>
+      </div>
+    </div>
+  </div>
+</div>

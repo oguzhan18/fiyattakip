@@ -1,0 +1,21 @@
+
+<mat-toolbar class="header" style="background-color: rgb(36, 36, 36);">
+
+  <mat-toolbar-row class="header-row">
+    <button  class="header-icon-button" mat-icon-button color="test"(click)="toggleSideBar()">
+      <mat-icon style="color: rgb(255, 255, 255);">menu</mat-icon>
+    </button>
+
+    <span class="logo" style="color:white;">ÇART APP</span>
+ <!-- <span class="float-right" style="color: rgb(255, 255, 255);position: absolute; right:10rem;" > {{today| date : 'shortDate' }}</span> -->
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" style="color: rgb(0, 0, 0);">
+      <ul fxLayout="row" fxLayoutGap="20px">
+        <div class="header-button">
+          <button mat-stroked-button  routerLinkActive="list-item-active" *ngIf="!_AuthService.isLoggedIn()" routerLink="/signin" style="background-color: white;">Giriş Yap</button>
+          <button mat-stroked-button  routerLinkActive="list-item-active" *ngIf="!_AuthService.isLoggedIn()" routerLink="/signup" style="background-color: white;"> Kayıt Oluştur</button>
+          <button mat-stroked-button  routerLinkActive="list-item-active" *ngIf="_AuthService.isLoggedIn()"(click)="_AuthService.SignOut()" [routerLink]="['/signin']" routerLinkActive="router-link-active"  style="background-color: white;"> Çıkış</button>
+        </div>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -1,0 +1,87 @@
+<mat-toolbar>
+  <mat-toolbar-row class="header-row">
+  <mat-icon>line_style</mat-icon>{{project_data.project_id}}
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="20px">
+        <div class="header-button">
+        </div>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-tab-group mat-align-tabs="start" >
+  <mat-tab label="Project Detail">
+  <div>
+  <mat-card>
+  <ul>
+   <li> Project Id : {{project_data.project_id}}</li>
+   <li> Project Name : {{project_data.project_name}}</li>
+   <li> Project Location : {{project_data.project_location}}</li>
+   <li> Project Header : {{project_data.project_short_description}}</li>
+   <li> Project Description: {{project_data.project_description}}</li>
+   <li> Project Status: {{project_data.project_status}}</li>
+   <li> Project Estimated Cost : {{project_data.project_estimated_cost}}</li>
+   <li> Project Owner : {{project_data.project_owner}}</li>
+   <li> Project Manager : {{project_data.project_manager}}</li>
+   <li> Project Start date : {{psd}}</li>
+   <li> Project End Date : {{ped}}</li>
+   </ul>
+  </mat-card>
+  </div>
+  </mat-tab>
+  <mat-tab label="Link">
+
+<div class="card-container">
+<div class="content" fxLayout="row wrap" fxLayoutGap="5px grid">
+  <div fxFlex="25%" *ngFor="let link of link_data">
+    <mat-card class="mat-elevation-z4" >
+      <mat-card-content>
+
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <div fxLayout="column">
+          <div class="link-card-header">{{link.link_id}}</div>
+          <div fxLayout="row" class ="link-card-route">
+          {{link.link_start_point}}<p>&nbsp; -- &nbsp;</p>{{link.link_end_point}}
+          </div>
+        </div>
+        <div class="link-card-status">{{link.link_status}}</div>
+      </div>
+
+      <mat-divider></mat-divider>
+      <div class="link-card-content">
+        <div fxLayout="row" fxLayoutAlign="space-between start" >
+        <p> Ürün ID : </p>
+        <p>{{link.vendor_id}}</p>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+        <p> Vendor Link Length : </p>
+        <p>{{link.link_vendor_length}}</p>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+        <p> Offical Link Length : </p>
+        <p>{{link.link_offical_length}}</p>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+        <p> Offical Billing Start date : </p>
+        <p>{{link.link_official_billing_start_d.seconds * 1000 | date: 'MM/dd/yyyy' }}</p>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+            <p> Vendor Billing Start date  : </p>
+            <div *ngIf="link.link_vendor_billing_start_d != null; then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock><p>{{link.link_vendor_billing_start_d.seconds * 1000 | date: 'MM/dd/yyyy' }}</p></ng-template>
+            <ng-template #elseBlock><p> No value</p></ng-template>
+        </div>
+
+      </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+</div>
+
+
+
+  </mat-tab>
+
+</mat-tab-group>

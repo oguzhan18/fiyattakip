@@ -1,0 +1,51 @@
+
+<div class="auth-backgroud">
+<div class="auth-container">
+<div class="auth-center-container">
+  <mat-toolbar><span>PDS Kayıt Oluşturma Portalı</span></mat-toolbar>
+
+  <mat-card>
+
+    <mat-card-content>
+
+          <form class="signup-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+            <mat-form-field class="signup-form-field">
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="test@test.com" value="Email Address" formControlName="email_address">
+              <mat-hint> Email </mat-hint>
+              <mat-error *ngIf="email_address.errors?.required" >Email alaının doldurunuz</mat-error>
+              <mat-error *ngIf="email_address.errors?.pattern"> Geçrsiz Email</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="signup-form-field">
+              <mat-label>Şifre</mat-label>
+              <input matInput placeholder="Şifre" value="Password" type ="password" formControlName="password">
+              <mat-hint> Şifrem </mat-hint>
+              <mat-error *ngIf="password.errors?.required" >Yanılış yada geçersiz şifre</mat-error>
+            </mat-form-field>
+            <mat-form-field class="signup-form-field">
+              <mat-label>Telefon Numarası</mat-label>
+
+              <input matInput placeholder="Telefon Numarsaı" value="phoneNumber" type ="phoneNumber" formControlName="phoneNumber">
+              <mat-hint>Telefon Numarası</mat-hint>
+              <mat-error *ngIf="phoneNumber.errors?.required" >Yanılış yada geçersiz şifre</mat-error>
+            </mat-form-field>
+
+        <button class="signup-button" mat-raised-button color="primary" style="width: 100%; display: block;"
+        [disabled]="signUpForm.invalid"
+        >Hesap Olştur</button>
+      </form>
+            {{errorMsg}}
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+    <div style="padding-top: 15px;"></div>
+    <button class="signup-button" mat-raised-button color="primary" style="width: 100%; display: block;" routerLink="/signin">Zaten bir hesabım var!!!</button>
+
+  </mat-card>
+</div>
+</div>
+</div>
+
+

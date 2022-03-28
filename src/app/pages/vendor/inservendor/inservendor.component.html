@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Müşteri Yönetim</h2>
+<mat-dialog-content class="mat-typography">
+       <form class=""  [formGroup]="insertVendorForm"  >
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>İşletme İsim</mat-label>
+              <input matInput placeholder="İşletme ismi" value="Vendor Id" formControlName="vendor_id" required>
+
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Müşteri İsim</mat-label>
+              <input matInput placeholder="Müşteri İsim" value="Vendor Name" formControlName="vendor_name" required>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>İşletme Tam Adresi</mat-label>
+              <input matInput placeholder="İşletme Tam Adresi" value="Vendor Address " formControlName="vendor_address" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Müşteri Adres - Yetkisi</mat-label>
+              <input matInput placeholder="Müşteri Adres - Yetkisi" value="Vendor City" formControlName="vendor_city" required>
+
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>İşletme Şehir</mat-label>
+              <input matInput placeholder="İşletme Şehir" value="Vendor State" formControlName="vendor_state" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>İşletme Psota Kodu</mat-label>
+              <input matInput placeholder="İşletme Psota Kodu" value="Vendor Pincode" formControlName="vendor_pincode" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>İşletme Ülkesi</mat-label>
+              <input matInput placeholder="İşletme Ülkesi" value="Vendor Country " formControlName="vendor_country" required>
+            </mat-form-field>
+
+        </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>İptal</button>
+  <button  mat-button color="accent" (click)="onSubmit()" [disabled]="insertVendorForm.invalid" >Gönder</button>
+
+</mat-dialog-actions>
+
+
+
+
+
+

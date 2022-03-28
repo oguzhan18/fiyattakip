@@ -1,0 +1,25 @@
+
+<div class="auth-backgroud">
+<div class="auth-container">
+<div class="auth-center-container">
+  <mat-toolbar><span>Başarılı şekilde kayıt oluşturuldu.</span></mat-toolbar>
+
+  <mat-card>
+
+    <mat-card-content>
+      <div class="formGroup">
+        <p class="text-center">adresine bir onay e-postası gönderdik. <strong>{{user.email}}</strong>.</p>
+        <p class="text-center">Lütfen e-posta adresinizi kontrol edin ve e-posta adresinizi doğrulamak için bağlantıya tıklayınız.</p>
+      </div>
+    </mat-card-content>
+
+    <mat-divider></mat-divider>
+    <div style="padding-top: 15px;"></div>
+    <button class="signup-button" mat-raised-button color="primary" style="width: 100%; display: block;" (click)="sendmail()">Doğrulama e-postasını tekrar gönder</button>
+    <button class="signup-button" mat-raised-button color="primary" style="width: 100%; display: block;" routerLink="/signin">Geri dön - Giriş yap</button>
+
+  </mat-card>
+</div>
+</div>
+</div>
+

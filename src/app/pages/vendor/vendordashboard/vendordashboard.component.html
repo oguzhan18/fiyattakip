@@ -1,0 +1,117 @@
+<mat-toolbar>
+  <mat-toolbar-row class="header-row">
+  <mat-icon>  person_add      </mat-icon>    Müşteri Yönetim Paneli
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <ul fxLayout="row" fxLayoutGap="20px">
+        <div class="header-button">
+          <button *ngIf="role=='admin'"  mat-stroked-button  routerLinkActive="list-item-active" (click)=" openInsertprojectDialog()">
+          <mat-icon>add</mat-icon> Müşteri Ekle
+          </button>
+        </div>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!--
+
+      <div class="db-container">
+          <div class="home-row" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="10px">
+              <mat-card class="card-1">
+                  <div fxLayout="row" fxLayoutAlign="space-between start">
+                  <h3 class="card1-header">Müşeti Yönetim</h3>
+                  <i class="material-icons" style="font-size: 20px">settings_input_component</i>
+                  </div>
+                   <h3 class="card1-header">100</h3>
+              </mat-card>
+
+              <mat-card class="card-1">
+                  <div fxLayout="row" fxLayoutAlign="space-between start">
+                  <h3 class="card1-header">Project in Piplene</h3>
+                  <i class="material-icons" style="font-size: 20px">settings_input_component</i>
+                  </div>
+                   <h3 class="card1-header">100</h3>
+
+              </mat-card>
+
+              <mat-card class="card-1">
+                  <div fxLayout="row" fxLayoutAlign="space-between start">
+                  <h3 class="card1-header">Active Project</h3>
+                  <i class="material-icons" style="font-size: 20px">settings_input_component</i>
+                  </div>
+                   <h3 class="card1-header">100</h3>
+              </mat-card>
+          </div>
+      </div> -->
+
+
+<!--- Project Table -->
+
+<div class="db-container">
+<mat-card class="db-table-card">
+<mat-toolbar>
+  <span>Kayıtlı Müşteri Listesi</span>
+</mat-toolbar>
+
+
+<div class="table-search" style="width:50% ; margin:2px 10px;">
+  <mat-form-field appearance="outline">
+    <mat-label>Müşeti ara</mat-label>
+    <input matInput placeholder="" (keyup)="applyFilter($event.target.value)" >
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="vendor_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Firma Adı </th>
+      <td mat-cell *matCellDef="let row">
+        <a routerLink="/vendor/{{row.vendor_uid}}">{{row.vendor_id}} </a>
+      </td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="vendor_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Müşteri İsmi</th>
+      <td mat-cell *matCellDef="let row"> {{row.vendor_name}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="vendor_city">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Müşteri Yetkisi </th>
+      <td mat-cell *matCellDef="let row"> {{row.Address.vendor_city}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="vendor_state">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> İşletme Şehri </th>
+      <td mat-cell *matCellDef="let row"> {{row.Address.vendor_state}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>  &nbsp; &nbsp; &nbsp;İşlem</th>
+      <td mat-cell *matCellDef="let row">
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="2px">
+        <button mat-icon-button color="warn" (click)="RemoveRecord(row.vendor_uid)"><mat-icon style="font-size: 20px">delete_outline</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="openEditprojectDialog(row)">
+        <mat-icon style="font-size: 20px">create</mat-icon></button>
+      </div>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100,500,700,1000,1500]"></mat-paginator>
+</div>
+</mat-card>
+</div>
+
+
+

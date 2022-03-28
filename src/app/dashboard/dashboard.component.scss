@@ -1,0 +1,119 @@
+
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@keyframes clouds-loop-1 {
+  to {
+    background-position: -1000px 0;
+  }
+}
+.clouds-1 {
+  background-image: url("https://s.cdpn.io/15514/clouds_2.png");
+  animation: clouds-loop-1 20s infinite linear;
+}
+
+@keyframes clouds-loop-2 {
+  to {
+    background-position: -1000px 0;
+  }
+}
+.clouds-2 {
+  background-image: url("https://s.cdpn.io/15514/clouds_1.png");
+  animation: clouds-loop-2 15s infinite linear;
+}
+
+@keyframes clouds-loop-3 {
+  to {
+    background-position: -1579px 0;
+  }
+}
+.clouds-3 {
+  background-image: url("https://s.cdpn.io/15514/clouds_3.png");
+  animation: clouds-loop-3 17s infinite linear;
+}
+
+html, body {
+  font-family: sans-serif;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzMzMzMzMyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #333333), color-stop(100%, #000000));
+  background: -moz-linear-gradient(#333333, #000000);
+  background: -webkit-linear-gradient(#333333, #000000);
+  background: linear-gradient(#333333, #000000);
+}
+body, body a {
+  color: #cccccc;
+}
+
+h1.quote {
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  text-align: right;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-weight: normal;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin: 0;
+  text-shadow: 0 -1px 0  #ffffff, 0 2px 3px #000000;
+}
+h1.quote span {
+  display: block;
+}
+
+section.info {
+  position: absolute;
+  bottom: 0;
+  right: 2ch;
+  font-size: 60%;
+}
+section.info dl {
+  display: -webkit-flex;
+  display: flex;
+}
+section.info dl dt, section.info dl dd {
+  margin: 0;
+  padding: 0;
+}
+section.info dl dt {
+  padding-right: 1ch;
+}
+section.info dl dd {
+  padding-right: 4ch;
+}
+
+.clouds {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+  pointer-events: none;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+.clouds-1,
+.clouds-2,
+.clouds-3 {
+  background-repeat: repeat-x;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 500px;
+}

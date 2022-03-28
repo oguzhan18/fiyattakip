@@ -1,0 +1,317 @@
+
+@import "~bootstrap/scss/bootstrap";
+
+/*---------------MEDIA CSS BEGIN------------------------*/
+@media (min-width: 1281px) {
+    .grid-container {
+        border: solid 1px map_get($colors, title-area);
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .grid-container {
+        border: solid 1px map_get($colors, title-area);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-container {
+        border: solid 1px map_get($colors, title-area);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-container {
+        border: solid 1px map_get($colors, title-area);
+    }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .chart {
+        display: none;
+    }
+    .fas {
+        display: none;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .home-container {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .piece-div {
+        padding: 0;
+    }
+    .grid-container {
+        margin-top: 20px;
+    }
+    .chart {
+        display: none;
+    }
+    .fas {
+        display: none;
+    }
+    .chart-container {
+        padding: 0;
+    }
+}
+ .footer{
+            margin-left: -119rem;
+            background-color: rgb(233, 233, 233);
+        }
+.home-container {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 100px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    .piece-div {
+        margin-bottom: 10px;
+        .grid-container {
+            background-color:white;
+            max-height: 900px;
+            min-height: 317px;
+            max-width: 100%;
+            .title {
+                background-color: #272727;
+                color: white;
+                font-size: 15px;
+                font-weight: 500;
+                display: flex;
+                height: 40px;
+                .title-fixed {
+                    display: flex;
+                    flex-direction: row;
+                    max-width: 600px;
+                    //opacity: 50%;
+                    align-items: center;
+                    .categoryName {
+                        margin-top: 3px;
+                    }
+                    .ask {
+                        text-align: end;
+                        padding: 0;
+                    }
+                    .bid {
+                        text-align: end;
+                        padding: 0;
+                    }
+                }
+                .click-icon {
+                    color: rgb(255 255 255 / 0.8);
+                    text-align: right;
+                    padding-right: 25px;
+                    font-size: 20px;
+                    align-self: center !important;
+                }
+            }
+            .overflow-box {
+                overflow-y: auto;
+                max-height: 500px;
+                height: 275px;
+                overflow-x: hidden;
+                border: 10px solid transparent;
+                .grid-box {
+                    display: flex;
+                    flex-direction: row;
+                    .grid-card {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        cursor: pointer;
+                        padding: 10px;
+                        .grid-text {
+                            color: #000000;
+                            width: 115px !important;
+                            padding: 0 0 0 10px;
+                        }
+                        .price-tag {
+                            display: flex;
+                            text-align: end;
+                            padding: 0;
+                            .price {
+                                color: rgb(0, 0, 0);
+                                padding: 0;
+                                text-align: end;
+                                margin-right: 10px;
+                                font-size: 16px;
+                            }
+                            .grid-all {
+                                color: rgb(0, 0, 0);
+                                padding: 0;
+                                text-align: start;
+                            }
+                            .grid-up {
+                                background-color: #3a9d37;
+                                color: #3a9d37;
+                                margin-right: 3px;
+                                text-align: start;
+                            }
+                            .grid-down {
+                                background-color: #f25961;
+                                color: #f25961;
+                                margin-right: 3px;
+                                text-align: start;
+                            }
+                        }
+                    }
+                    .grid-card-up {
+                        animation-name: up;
+                        animation-duration: 4s;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        cursor: pointer;
+                        .grid-text {
+                            padding-right: 10px;
+                            color: #000000;
+                        }
+                        .price-tag {
+                            display: flex;
+                            text-align: center;
+                            .price {
+                                color: rgb(0, 0, 0);
+                                padding: 0;
+                                text-align: end;
+                                margin-right: 10px;
+                                font-size: 16px;
+                            }
+                            .grid-all {
+                                margin-right: 5px;
+                                color: rgb(0, 0, 0);
+                            }
+                            .grid-up {
+                                background-color: #3a9d37;
+                                margin-right: 5px;
+                                color: black;
+                            }
+                            .grid-down {
+                                background-color: #f25961;
+                                margin-right: 5px;
+                                color: rgb(255, 255, 255);
+                            }
+                        }
+                    }
+                    .grid-card-down {
+                        animation-name: down;
+                        animation-duration: 4s;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        cursor: pointer;
+                        .grid-text {
+                            padding-right: 10px;
+                            color: #000000;
+                        }
+                        .price-tag {
+                            display: flex;
+                            text-align: center;
+                            .price {
+                                color: rgb(0, 0, 0);
+                                padding: 0;
+                                text-align: end;
+                                margin-right: 10px;
+                                font-size: 16px;
+                            }
+                            .grid-all {
+                                margin-right: 5px;
+                                color: #000000;
+                            }
+                            .grid-up {
+                                background-color: #3a9d37;
+                                margin-right: 5px;
+                                color: white;
+                            }
+                            .grid-down {
+                                background-color: #f25961;
+                                margin-right: 5px;
+                                color: rgb(0, 0, 0);
+                            }
+                        }
+                    }
+                    .list {
+                        list-style-type: none;
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+                        .timeline-badge {
+                            border: solid 1px black;
+                            padding: 10px;
+                        }
+                    }
+                }
+            }
+        }
+        .chart {
+            background-color: #ececec;
+            overflow-y: auto;
+            max-height: 600px;
+            max-width: 100%;
+            padding: 0;
+        }
+        .title-rss {
+            background-color: map_get($colors, title-area);
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+        .rss-container {
+            background-color: transparent;
+            overflow-y: auto;
+            height: 300px;
+            max-height: 100%;
+            max-width: 100%;
+        }
+        .button-area {
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+    .btn {
+        background-color: #b39860;
+        border: transparent;
+    }
+}
+@keyframes up {
+    0% {
+        background-color: transparent;
+    }
+    25% {
+        background-color: rgba(89, 123, 75, 0.2);
+    }
+    50% {
+        background-color: rgba(58, 157, 55, 0.2);
+    }
+    75% {
+        background-color: rgba(92, 132, 71, 0.2);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+@keyframes down {
+    0% {
+        background-color: transparent;
+    }
+    25% {
+        background-color: rgba(156, 103, 103, 0.2);
+    }
+    50% {
+        background-color: rgba(242, 89, 97, 0.2);
+    }
+    75% {
+        background-color: rgba(158, 117, 117, 0.2);
+    }
+    100% {
+        background-color: transparent;
+    }
+}

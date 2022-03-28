@@ -1,0 +1,93 @@
+<h2 mat-dialog-title>Install Angular</h2>
+<mat-dialog-content class="mat-typography">
+       <form class=""  [formGroup]="insertProjectForm"  >
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Project ID</mat-label>
+              <input matInput placeholder="Project Id" value="Project Id" formControlName="project_id" required>           
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Project Name</mat-label>
+              <input matInput placeholder="Project Name" value="Project Name" formControlName="project_name" required>              
+            </mat-form-field>
+ 
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Project Location</mat-label>
+              <input matInput placeholder="Project Location" value="Project Location" formControlName="project_location" required>           
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Project Description</mat-label>
+              <input matInput placeholder="Project Description" value="Project Description" formControlName="project_description" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Project Short Description</mat-label>
+              <input matInput placeholder="Project Short Description" value="Project Short Description" formControlName="project_short_description" required>
+            </mat-form-field>
+
+              <mat-form-field appearance="fill" style="margin-right:15px">
+                <mat-label>Project Status</mat-label>
+                <mat-select formControlName="project_status" placeholder="Favorite food"  required>
+                  <mat-option *ngFor="let status of projectstatus" [value]="status.value">
+                    {{status.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Project Estimated Cost</mat-label>
+              <input matInput placeholder="Project Estimated Cost" value="Project Estimated Cost" formControlName="project_estimated_cost" required>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Project Owner Company</mat-label>
+                <mat-select formControlName="project_owner" placeholder="Project Owner"  required>
+                  <mat-option *ngFor="let company of company_data" [value]="company.comp_full_name">
+                    {{company.comp_full_name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" style="margin-right:15px">
+                <mat-label>Project Manager</mat-label>
+                <mat-select formControlName="project_manager" placeholder="Project Manager"  required>
+                  <mat-option *ngFor="let employee of employee_data" [value]="employee.emp_name">
+                    {{employee.emp_name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+            
+            <mat-form-field color="accent" appearance="fill" style="margin-right:15px">
+                <mat-label>Project Start Data</mat-label>
+                <input matInput formControlName="project_start_d" [matDatepicker]="picker1" required>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+
+
+            <mat-form-field color="accent" appearance="fill" style="margin-right:15px">
+                <mat-label>Project End Date</mat-label>
+                <input matInput formControlName="project_end_d" [matDatepicker]="picker2" >
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+
+
+        </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button  mat-button color="accent" (click)="onSubmit()" [disabled]="insertProjectForm.invalid" >Submit</button>        
+
+</mat-dialog-actions>
+
+
+
+
+
+

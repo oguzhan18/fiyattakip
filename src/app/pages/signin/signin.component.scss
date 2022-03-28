@@ -1,0 +1,69 @@
+.auth-backgroud {
+  width: 100%;
+}
+
+.auth-container {
+  margin: 0 auto;
+  padding: 0;
+  margin-bottom: 70px;
+}
+
+.auth-center-container {
+    margin-top: 5%;
+}
+.auth-card {
+  border-radius: 0em;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.mat-toolbar {
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+}
+
+.signin-form {
+  min-width: 150px;
+  width: 100%;
+}
+
+.signin-button {
+  margin-top: 25px !important;
+  margin-bottom: 25px !important;
+}
+
+.example-full-width {
+  width: 100%;
+  padding: 5px 0px;
+}
+
+@media only screen and (min-width: 300px) {
+}
+@media only screen and (min-width: 400px) {
+}
+@media only screen and (min-width: 700px) {
+  .auth-container {
+    width: 80%;
+    margin-bottom: 60px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .auth-container {
+    width: 50%;
+    margin-bottom: 140px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .auth-container {
+    width: 50%;
+    margin-bottom: 140px;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .auth-container {
+    width: 80%;
+    margin-bottom: 340px;
+  }
+}

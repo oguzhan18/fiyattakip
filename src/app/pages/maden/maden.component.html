@@ -1,0 +1,425 @@
+
+<div class="home-container col-12">
+  <div class="piece-div col-sm-12 col-md-12 col-lg-5">
+    <div class="grid-container">
+      <div class="title">
+        <div class="title-fixed col-8">
+          <div class="categoryName col-sm-6 col-md-6 col-lg-6" style="margin-left:5px;">
+            Sarrafiye
+          </div>
+          <div class="bid col-sm-3 col-md-3 col-lg-3" translate>
+            alış
+          </div>
+          <div class="ask col-sm-3 col-md-3 col-lg-3" translate>
+            satış
+          </div>
+        </div>
+        <div class="click-icon col-2" (click)="resizeDiv('currencyContainer')">
+          <!-- <i class="material-icons">fullscreen</i> -->
+        </div>
+      </div>
+
+      <div class="overflow-box" id="ziynetContainer">
+        <div class="grid-box" *ngFor="let data of ziynetList ; let i=index; trackBy : trackByPrice">
+          <div class="grid-card" (click)="toggle(data)" [ngClass]="{'grid-card-up': data.askPercentChange >0,
+                 'grid-card-down': data.askPercentChange <0}">
+                        <span class="grid-text col-sm-3 col-md-3 col-lg-3">
+              {{data.Code}}
+            </span>
+            <div class="price-tag col-sm-9 col-md-9 col-lg-9">
+                            <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange>0"
+                                  style="color: #3a9d37;padding: 0;text-align: center">
+                <i class="fa fa-angle-up"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange<0"
+                    style="color: #f25961;padding: 0;text-align: center">
+                <i class="fa fa-angle-down"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange===0 || !data.askPercentChange"
+                    style="color: orange;padding: 0;text-align: center">
+                <i class="fa fa-minus"></i>
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+            {{data.Bid | number:'1.4-4'}}
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+         {{data.Ask | number:'1.4-4'}}
+              </span>
+              <span *ngIf="data.askPercentChange>0" class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: #3a9d37">
+            %{{data.askPercentChange}}
+          </span>
+              <span *ngIf="data.askPercentChange<0" class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: #f25961">
+            %{{data.askPercentChange}}
+          </span>
+              <span *ngIf="data.askPercentChange==0 || !data.askPercentChange"
+                    class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: orange">
+            %{{data.askPercentChange}}.00
+          </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ********  ******** -->
+  <div class="piece-div col-sm-12 col-md-12 col-lg-6">
+    <div class="grid-container">
+      <div class="title">
+        <div class="title-fixed col-9">
+          <div class="categoryName col-sm-6 col-md-6 col-lg-6" style="margin-left: 15px;">
+            Altın
+          </div>
+          <div class="bid col-sm-3 col-md-3 col-lg-3" translate>
+            Alış
+          </div>
+          <div class="ask col-sm-3 col-md-3 col-lg-3" translate>
+            Satış
+          </div>
+        </div>
+        <div class="click-icon col-2" (click)="resizeDiv('metalContainer')">
+          <i class="material-icons">fullscreen</i>
+        </div>
+      </div>
+
+      <div class="overflow-box" id="metalContainer">
+        <div class="grid-box" *ngFor="let data of goldList ; let i=index; trackBy : trackByPrice">
+          <div class="grid-card" (click)="toggle(data)" [ngClass]="{'grid-card-up': data.askPercentChange >0,
+                 'grid-card-down': data.askPercentChange <0}">
+                        <span class="grid-text col-sm-3 col-md-3 col-lg-3">
+              {{data.Code}}
+            </span>
+            <div class="price-tag col-sm-9 col-md-9 col-lg-9">
+                            <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange>0"
+                                  style="color: #3a9d37;padding: 0;text-align: center">
+                <i class="fa fa-angle-up"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange<0"
+                    style="color: #f25961;padding: 0;text-align: center">
+                <i class="fa fa-angle-down"></i>
+              </span>
+              <span class="col-sm-3 col-md-3 col-lg-3" *ngIf="data.askPercentChange===0 || !data.askPercentChange"
+                    style="color: orange;padding: 0;text-align: center">
+                <i class="fa fa-minus"></i>
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+            {{data.Bid | number:'1.4-4'}}
+              </span>
+              <span class="price col-sm-3 col-md-3 col-lg-3">
+         {{data.Ask | number:'1.4-4'}}
+              </span>
+              <span *ngIf="data.askPercentChange>0" class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: #3a9d37">
+            %{{data.askPercentChange}}
+          </span>
+              <span *ngIf="data.askPercentChange<0" class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: #f25961">
+            %{{data.askPercentChange}}
+          </span>
+              <span *ngIf="data.askPercentChange==0 || !data.askPercentChange"
+                    class="grid-all col-sm-3 col-md-3 col-lg-3" style="color: orange">
+            %{{data.askPercentChange}}.00
+          </span>
+
+        </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-container col-12">
+    <div class="piece-div col-sm-12 col-md-12 col-lg-4">
+      <div class="grid-container">
+        <div class="title">
+          <div class="title-fixed col-10">
+            <div class="categoryName col-sm-6 col-md-6 col-lg-6" style="margin-left:5px;">
+              Kıymetli Metal
+            </div>
+            <div class="bid col-sm-3 col-md-3 col-lg-1" translate>
+              Fiyat
+            </div>
+            <div class="ask col-sm-3 col-md-3 col-lg-3" translate>
+             Anlık
+            </div>
+          </div>
+          <div class="click-icon col-2"(click)="resizeDiv('bakirContainer')">
+            <i class="material-icons" style="cursor: pointer;">fullscreen</i>
+          </div>
+        </div>
+
+        <div class="overflow-box" id="bakirContainer">
+          <div class="grid-box">
+            <div class="grid-card">
+                  <span class="ask col-sm-3 col-md-3 col-lg-5">
+                    {{emita.data.kiymetli_metal[0].kiymetli_metal}} <br>
+                    {{emita.data.kiymetli_metal[1].kiymetli_metal}} <br>
+                    {{emita.data.kiymetli_metal[2].kiymetli_metal}} <br>
+                    {{emita.data.kiymetli_metal[3].kiymetli_metal}} <br>
+                  </span>
+
+                  <span class="ask col-sm-3 col-md-3 col-lg-3">
+                    {{emita.data.kiymetli_metal[0].son}} <br>
+                    {{emita.data.kiymetli_metal[1].son}} <br>
+                    {{emita.data.kiymetli_metal[2].son}} <br>
+                    {{emita.data.kiymetli_metal[3].son}} <br>
+                  </span>
+                  <span class="ask col-sm-3 col-md-3 col-lg-3">
+                    {{emita.data.kiymetli_metal[0].durum}} <br>
+                    {{emita.data.kiymetli_metal[1].durum}} <br>
+                    {{emita.data.kiymetli_metal[2].durum}} <br>
+                    {{emita.data.kiymetli_metal[3].durum}} <br>
+                  </span>
+                  <span class="ask col-sm-3 col-md-3 col-lg-3">
+                    {{emita.data.kiymetli_metal[0].fark}} <br>
+                    {{emita.data.kiymetli_metal[1].fark}} <br>
+                    {{emita.data.kiymetli_metal[2].fark}} <br>
+                    {{emita.data.kiymetli_metal[3].fark}} <br>
+                  </span>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+    <div class="piece-div col-sm-12 col-md-12 col-lg-4">
+      <div class="grid-container">
+        <div class="title">
+          <div class="title-fixed col-10">
+            <div class="categoryName col-sm-6 col-md-6 col-lg-6" style="margin-left:5px;">
+              Sanayi Emita
+            </div>
+            <div class="bid col-sm-3 col-md-3 col-lg-1" translate>
+              Fiyat
+            </div>
+            <div class="ask col-sm-3 col-md-3 col-lg-3" translate>
+             Anlık
+            </div>
+          </div>
+          <div class="click-icon col-2"(click)="resizeDiv('sanyiContainer')">
+            <i class="material-icons" style="cursor: pointer;">fullscreen</i>
+          </div>
+        </div>
+
+        <div class="overflow-box" id="sanyiContainer">
+          <div class="grid-box">
+            <div class="grid-card">
+                  <span class="ask col-sm-3 col-md-3 col-lg-5">
+                    {{emita.data.sanayi_emtia[0].sanayi_emtia}} <br>
+                    {{emita.data.sanayi_emtia[1].sanayi_emtia}} <br>
+                    {{emita.data.sanayi_emtia[2].sanayi_emtia}} <br>
+                    {{emita.data.sanayi_emtia[3].sanayi_emtia}} <br>
+                    {{emita.data.sanayi_emtia[4].sanayi_emtia}} <br>
+                    {{emita.data.sanayi_emtia[5].sanayi_emtia}} <br>
+                  </span>
+
+                  <span class="ask col-sm-3 col-md-3 col-lg-3">
+                    {{emita.data.sanayi_emtia[0].son}} <br>
+                    {{emita.data.sanayi_emtia[1].son}} <br>
+                    {{emita.data.sanayi_emtia[2].son}} <br>
+                    {{emita.data.sanayi_emtia[3].son}} <br>
+                    {{emita.data.sanayi_emtia[4].son}} <br>
+                    {{emita.data.sanayi_emtia[5].son}} <br>
+                  </span>
+                  <span class="ask col-sm-3 col-md-3 col-lg-3">
+                    {{emita.data.sanayi_emtia[0].durum}} <br>
+                    {{emita.data.sanayi_emtia[1].durum}} <br>
+                    {{emita.data.sanayi_emtia[2].durum}} <br>
+                    {{emita.data.sanayi_emtia[3].durum}} <br>
+                    {{emita.data.sanayi_emtia[4].durum}} <br>
+                    {{emita.data.sanayi_emtia[5].durum}} <br>
+                  </span>
+                  <span class="ask col-sm-3 col-md-3 col-lg-3">
+                    {{emita.data.sanayi_emtia[0].fark}} <br>
+                    {{emita.data.sanayi_emtia[1].fark}} <br>
+                    {{emita.data.sanayi_emtia[2].fark}} <br>
+                    {{emita.data.sanayi_emtia[3].fark}} <br>
+                    {{emita.data.sanayi_emtia[4].fark}} <br>
+                    {{emita.data.sanayi_emtia[5].fark}} <br>
+                  </span>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+    <div class="piece-div col-sm-12 col-md-12 col-lg-4">
+      <div class="grid-container">
+        <div class="title">
+          <div class="title-fixed col-10">
+            <div class="categoryName col-sm-6 col-md-6 col-lg-6" style="margin-left:5px;">
+              Enerji Emita Fiyatları
+            </div>
+            <div class="bid col-sm-3 col-md-3 col-lg-1" translate>
+              Fiyat
+            </div>
+            <div class="ask col-sm-3 col-md-3 col-lg-3" translate>
+             Puan
+            </div>
+          </div>
+          <div class="click-icon col-2"(click)="resizeDiv('enerjContainer')">
+            <i class="material-icons" style="cursor: pointer;">fullscreen</i>
+          </div>
+        </div>
+
+        <div class="overflow-box" id="enerjContainer">
+          <div class="grid-box">
+            <div class="grid-card">
+                  <span class="ask col-sm-3 col-md-3 col-lg-5">
+                    {{emita.data.enerji_emtia[0].enerji_emtia}} <br>
+                    {{emita.data.enerji_emtia[1].enerji_emtia}} <br>
+                    {{emita.data.enerji_emtia[2].enerji_emtia}} <br>
+                  </span>
+
+                  <span class="ask col-sm-3 col-md-3 col-lg-3">
+                    {{emita.data.enerji_emtia[0].son}} <br>
+                    {{emita.data.enerji_emtia[1].son}} <br>
+                    {{emita.data.enerji_emtia[2].son}} <br>
+                  </span>
+
+                  <span class="ask col-sm-3 col-md-3 col-lg-3">
+                    {{emita.data.enerji_emtia[0].fark}} <br>
+                    {{emita.data.enerji_emtia[1].fark}} <br>
+                    {{emita.data.enerji_emtia[2].fark}} <br>
+                  </span>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+    <div class="piece-div col-sm-12 col-md-12 col-lg-4">
+      <div class="grid-container">
+        <div class="title">
+          <div class="title-fixed col-10">
+            <div class="categoryName col-sm-6 col-md-6 col-lg-6" style="margin-left:5px;">
+              Gıda Emita
+            </div>
+            <div class="bid col-sm-3 col-md-3 col-lg-1" translate>
+              Fiyat
+            </div>
+            <div class="ask col-sm-3 col-md-3 col-lg-3" translate>
+             Puan
+            </div>
+          </div>
+          <div class="click-icon col-2"(click)="resizeDiv('iContainer')">
+            <i class="material-icons" style="cursor: pointer;">fullscreen</i>
+          </div>
+        </div>
+
+        <div class="overflow-box" id="iContainer">
+          <div class="grid-box">
+            <div class="grid-card">
+                  <span class="ask col-sm-3 col-md-3 col-lg-5">
+                    {{emita.data.tarim_emtia[0].tarim_emtia}} <br>
+                    {{emita.data.tarim_emtia[1].tarim_emtia}} <br>
+                    {{emita.data.tarim_emtia[2].tarim_emtia}} <br>
+                  </span>
+
+                  <span class="ask col-sm-3 col-md-3 col-lg-3">
+                    {{emita.data.tarim_emtia[0].son}} <br>
+                    {{emita.data.tarim_emtia[1].son}} <br>
+                    {{emita.data.tarim_emtia[2].son}} <br>
+                  </span>
+
+                  <span class="astarim_emtiaol-md-3 col-lg-3">
+                    {{emita.data.tarim_emtia[0].fark}} <br>
+                    {{emita.data.tarim_emtia[1].fark}} <br>
+                    {{emita.data.tarim_emtia[2].fark}} <br>
+                  </span>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+    <div class="piece-div col-sm-12 col-md-12 col-lg-4">
+      <div class="grid-container">
+        <div class="title">
+          <div class="title-fixed col-10">
+            <div class="categoryName col-sm-6 col-md-6 col-lg-6" style="margin-left:5px;">
+              Değerli Maden Emita
+            </div>
+            <div class="bid col-sm-3 col-md-3 col-lg-1" translate>
+              Fiyat
+            </div>
+            <div class="ask col-sm-3 col-md-3 col-lg-3" translate>
+             Puan
+            </div>
+          </div>
+          <div class="click-icon col-2"(click)="resizeDiv('iaContainer')">
+            <i class="material-icons" style="cursor: pointer;">fullscreen</i>
+          </div>
+        </div>
+
+        <div class="overflow-box" id="iaContainer">
+          <div class="grid-box">
+            <div class="grid-card">
+                  <span class="ask col-sm-3 col-md-3 col-lg-5">
+                    {{emita.data.kiymetli_metal[2].kiymetli_metal}} <br>
+                    {{emita.data.kiymetli_metal[3].kiymetli_metal}} <br>
+                  </span>
+
+                  <span class="ask col-sm-3 col-md-3 col-lg-3">
+                    {{emita.data.kiymetli_metal[2].son}} <br>
+                    {{emita.data.kiymetli_metal[3].son}} <br>
+                  </span>
+
+                  <span class="astarim_emtiaol-md-3 col-lg-3">
+                    {{emita.data.kiymetli_metal[2].fark}} <br>
+                    {{emita.data.kiymetli_metal[3].fark}} <br>
+                  </span>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+    <div class="piece-div col-sm-12 col-md-12 col-lg-24">
+      <div class="grid-container">
+        <div class="title">
+          <div class="title-fixed col-10">
+            <div class="categoryName col-sm-6 col-md-6 col-lg-10" style="margin-left:5px;">
+              Yapay Zeka     <b>**Gelecekte ki fiyatlar ile geçmiş fiyatları karşılaştırarak bir sonra ki fiaytı veriyor. Hatta payı vardır. Mesuliyet size aitir.</b>
+            </div>
+            <!-- <div class="bid col-sm-3 col-md-3 col-lg-1" translate>
+              Durum
+            </div>
+            <div class="ask col-sm-3 col-md-3" translate>
+             Puan
+            </div> -->
+          </div>
+        </div>
+
+        <div class="overflow-box" id="bContainer">
+          <div class="grid-box">
+            <div class="grid-card">
+                  <span class="ask col-sm-3 col-md-3 col-lg-6">
+                    {{emita.data.sanayi_emtia_3_aylik[0].sanayi_emtia_3_aylik}} <br>
+                    {{emita.data.sanayi_emtia_3_aylik[1].sanayi_emtia_3_aylik}} <br>
+                    {{emita.data.sanayi_emtia_3_aylik[2].sanayi_emtia_3_aylik}} <br>
+                    {{emita.data.sanayi_emtia_3_aylik[3].sanayi_emtia_3_aylik}} <br>
+                    {{emita.data.sanayi_emtia_3_aylik[4].sanayi_emtia_3_aylik}} <br>
+                    {{emita.data.sanayi_emtia_3_aylik[5].sanayi_emtia_3_aylik}} <br>
+
+                  </span>
+
+                  <div class="ask col-sm-3 col-md-3 col-lg-4" >
+          <p *ngIf="'yukseldi'" class="text-price-up"> {{emita.data.sanayi_emtia_3_aylik[0].durum}} <br>{{emita.data.sanayi_emtia_3_aylik[1].durum}} <br>{{emita.data.sanayi_emtia_3_aylik[2].durum}} <br>{{emita.data.sanayi_emtia_3_aylik[3].durum}} <br>{{emita.data.sanayi_emtia_3_aylik[4].durum}} <br> {{emita.data.sanayi_emtia_3_aylik[5].durum}} </p>
+
+                    </div>
+
+                  <div style="margin-left:-150px;">
+                    {{emita.data.sanayi_emtia_3_aylik[0].son}} <br>
+                    {{emita.data.sanayi_emtia_3_aylik[1].son}} <br>
+                    {{emita.data.sanayi_emtia_3_aylik[2].son}} <br>
+                    {{emita.data.sanayi_emtia_3_aylik[3].son}} <br>
+                    {{emita.data.sanayi_emtia_3_aylik[4].son}} <br>
+                    {{emita.data.sanayi_emtia_3_aylik[5].son}} <br>
+                  </div>
+                  </div>
+                </div>
+              </div>
+      </div>
+   <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_34628&symbol=COPPER&interval=1&symboledit=0&saveimage=0&toolbarbg=f1f3f6&studies=%5B%5D&theme=dark&style=2&timezone=Europe%2FIstanbul&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=tr" frameborder="0"  style="width: 50%;height:25rem; "></iframe>
+  </div>
+
+    <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_34628&symbol=GOLD&interval=1&symboledit=0&saveimage=0&toolbarbg=f1f3f6&studies=%5B%5D&theme=dark&style=2&timezone=Europe%2FIstanbul&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=tr" frameborder="0"  style="width: 50%;height:19.8rem; "></iframe>
+    <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_34628&symbol=COPPER&interval=1&symboledit=0&saveimage=0&toolbarbg=f1f3f6&studies=%5B%5D&theme=dark&style=2&timezone=Europe%2FIstanbul&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=tr" frameborder="0"  style="width: 42%;height:19.8rem; "></iframe>
+    <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_34628&symbol=METAL&interval=1&symboledit=0&saveimage=0&toolbarbg=f1f3f6&studies=%5B%5D&theme=dark&style=2&timezone=Europe%2FIstanbul&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=tr" frameborder="0"  style="width: 42%;height:19.8rem; "></iframe>
+
+  </div>
+
+

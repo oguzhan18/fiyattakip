@@ -1,0 +1,15 @@
+  <ngx-loading-bar [includeSpinner]="false"></ngx-loading-bar>
+  <!-- Footer Component-->
+  <app-header (toggleSideBarForMe)="sideBarToggler()"></app-header>
+  <!-- left Side drawer Component-->
+  <mat-drawer-container>
+    <mat-drawer [mode]="mode" [opened]="sideBarOpen" >
+      <app-sidebar></app-sidebar>
+    </mat-drawer>
+
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+    </mat-drawer-content>
+  </mat-drawer-container>
+

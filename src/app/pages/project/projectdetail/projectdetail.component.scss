@@ -1,0 +1,72 @@
+.card-1{
+    width: 100% !important;
+}
+.card1-header{
+  font-size: 6;
+  font-weight: 700;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.db-container{
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom:20px ;
+  margin-top:20px ;
+}
+
+.db-table-card{
+  margin: 0; padding: 0;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.card-container{
+  padding:20px;
+}
+
+
+/** Card Design** */
+
+.link-card-route{
+  font-size: 8px !important;
+  font-weight: 600;
+  color: grey;
+}
+.link-card-header{
+  font-size: 13px !important;
+  font-weight: 600;
+
+}
+
+.link-card-status{
+  border: 1px solid rgb(245, 239, 239) !important;
+  padding: 0 8px;
+  margin: 0px;
+  font-size: 8px;
+  font-weight: 600;
+  background-color: honeydew;
+  border-radius: 10px;
+}
+
+.link-card-content{
+  padding-top: 10px;
+  font-size: 10px;
+}
+.link-card-content p {
+  padding:0px !important;
+  margin: 0px !important;
+}
